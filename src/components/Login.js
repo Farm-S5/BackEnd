@@ -30,7 +30,7 @@ export function LoginForm() {
                 } else {
                     console.log('User ID:', responseBody);
                     saveId(responseBody);
-                    navigate("/AppList");
+                    navigate("ListePersonne");
                 }
             } else {
                 console.warn('Server responded with an error:', response.status);

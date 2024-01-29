@@ -13,7 +13,6 @@ function App() {
         <Route>
           <Route path="/" exact element ={<Login />} />
           <Route path="ListePersonne" exact element ={<ListPerson/>} />
-          <Route path="ListeMessage" exact element ={<ListeMessage/>} />
         </Route>
       </Routes>
     </BrowserRouter>
