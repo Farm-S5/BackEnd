@@ -68,7 +68,6 @@ export function ListElement() {
     
             if (response1.ok) {
                 alert('Terrain validated successfully. ID: '+idTerrain);
-                window.location.reload();
             } else {
                 console.warn('Server responded with an error:', response1.status);
                 try {
