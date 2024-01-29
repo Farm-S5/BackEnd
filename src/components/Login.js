@@ -43,7 +43,7 @@ export function LoginForm() {
             <div className="input-box">       
                 <input
                     type="email"
-                    placeholder="Nom de l'utilisateur"
+                    placeholder="Yasuo"
                     // value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -53,7 +53,7 @@ export function LoginForm() {
             <div className="input-box">       
                 <input
                     type="password"
-                    placeholder="Mot de passe"
+                    placeholder="123"
                     // value={mdp}
                     onChange={(e) => setPass(e.target.value)}
                     required
