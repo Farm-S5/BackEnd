@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './login.css';
 import { FaUser,FaLock  } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+
 
 export function LoginForm() {
     const [nameUser,setEmail]=useState("");
     const [passUser,setPass] = useState("");
+    const navigate = useNavigate();
     
     function saveId(userId) {
         localStorage.setItem('id', userId);
@@ -27,6 +30,7 @@ export function LoginForm() {
                 } else {
                     console.log('User ID:', responseBody);
                     saveId(responseBody);
+                    navigate("/AppList");
                 }
             } else {
                 console.warn('Server responded with an error:', response.status);
