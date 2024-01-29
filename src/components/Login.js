@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './login.css';
 import { FaUser,FaLock  } from "react-icons/fa";
 
 export function LoginForm() {
     const [nameUser,setEmail]=useState("");
     const [passUser,setPass] = useState("");
-    const history = useHistory();
     
     function saveId(userId) {
         localStorage.setItem('id', userId);
@@ -28,7 +27,6 @@ export function LoginForm() {
                 } else {
                     console.log('User ID:', responseBody);
                     saveId(responseBody);
-                    history.push('/AppList');
                 }
             } else {
                 console.warn('Server responded with an error:', response.status);
