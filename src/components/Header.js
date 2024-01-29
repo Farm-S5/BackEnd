@@ -33,7 +33,7 @@ export function HeaderElement() {
             <a href="Header" className="brand">Farm city</a>
             {personne && (
                 <>
-                    <h3>{personne.nameUser}</h3>
+                    <h3 className="nameUser">{personne.nameUser}</h3>
                     <ul className="nav_menu">
                         <li className="nav_item"><a href="#" className="nav_link"><IoIosNotifications className={"iconN"} />Notification</a></li>
                         <li className="nav_item"><IoLogOutSharp className={"iconL"} /></li>

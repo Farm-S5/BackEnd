@@ -29,6 +29,7 @@ export function CreateElement() {
                 alert("Add Culture: " + nameCulture);
             } else {
                 console.warn('Server responded with an error:', response.status);
+                window.location.reload();
                 try {
                     const errorResponse = await response.json();
                     console.error('Server error details:', errorResponse);
@@ -56,6 +57,7 @@ export function CreateElement() {
                 const idTerrain = responseData;
                 alert("Add terrain ID: " + idTerrain);
                 addTerrainPersonne(idTerrain);
+                window.location.reload();
             } else {
                 console.warn('Server responded with an error:', response.status);
                 try {
@@ -82,6 +84,7 @@ export function CreateElement() {
             });
             if (response.ok) {
                 console.log("Add Personneterrain ID: " + idTerrain);
+                window.location.reload();
             } else {
                 console.warn('Server responded with an error:', response.status);
                 try {

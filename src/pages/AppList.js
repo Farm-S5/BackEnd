@@ -2,7 +2,7 @@ import {HeaderElement} from "../components/Header";
 import {CreateElement} from "../components/Create";
 import {ListElement} from "../components/List";
 import {Stat} from "../components/Stat"; 
-import '../App.css';
+// import '../App.css';
 
 function AppList() {
     return (

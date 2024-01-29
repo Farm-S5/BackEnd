@@ -1,3 +1,10 @@
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 111px;
+}
 
 .table {
     border-collapse: collapse;
@@ -5,7 +12,11 @@
     max-width: 800px;
     border-collapse: separate; 
     border-spacing: 1px; 
-    margin-bottom: 400px;
+    margin-bottom: 504px;
+}
+
+.table2{
+    margin-top: -500px;
 }
 
 .head th {
