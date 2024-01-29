@@ -1,0 +1,48 @@
+.nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0,64,6,1) 0%, rgba(0,64,6,0.9299369405965511) 52%, rgba(0,64,6,0.7254551478794643) 100%);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  
+}
+
+.brand {
+  color: white; /* Couleur du texte */
+  font-size: 24px; /* Taille de la police */
+  text-decoration: none; /* Enlever le soulignement du lien */
+}
+
+.nav_menu {
+  list-style-type: none; /* Enlever les puces de liste */
+  margin: 0; /* Enlever les marges par défaut */
+  padding: 0; /* Enlever le rembourrage par défaut */
+  display: flex; /* Utiliser flexbox pour aligner les éléments */
+}
+
+.nav_item {
+  margin-left: 20px; /* Espacement entre les éléments */
+}
+
+.nav_link {
+  color: white; /* Couleur du texte */
+  text-decoration: none; /* Enlever le soulignement du lien */
+  display: flex; /* Utiliser flexbox pour aligner les icônes et le texte */
+  align-items: center; /* Centrer verticalement les icônes et le texte */
+}
+
+.iconS{
+  font-size: 15px;
+}
+
+.iconS,
+.iconN,
+.iconL {
+  margin-right: 5px; /* Espacement entre l'icône et le texte */
+  font-size: 20px; /* Taille de l'icône */
+  color: white;
+}

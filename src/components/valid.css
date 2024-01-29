@@ -1,0 +1,41 @@
+
+.table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    border-collapse: separate; 
+    border-spacing: 1px; 
+    margin-bottom: 400px;
+}
+
+.head th {
+    background-color: #004006b3;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.subtitle td {
+    background-color: #e6e6e6de;
+    color: #004006;
+    text-align: center;
+    padding: 8px;
+}
+
+.content td {
+    background-color: rgba(245, 245, 245, 0.288);
+    color: white;
+    text-align: center;
+    padding: 8px;
+}
+
+.subtitle td:first-child,
+.content td:first-child {
+    text-align: left;
+}
+
+.iconM{
+    color: rgb(130, 11, 0);
+}
+
+

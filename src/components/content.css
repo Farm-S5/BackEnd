@@ -1,0 +1,48 @@
+.productList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
+    gap: 20px; /* Espacement entre les cartes */
+    background-image: url('./assets/back.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px; /* Espacement intérieur */
+  }
+  
+  .productCard {
+    background-color: rgba(255, 255, 255, 0.8); /* Couleur de fond de la carte avec transparence */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 20px; /* Espacement intérieur de la carte */
+  }
+  
+  .productImage {
+    width: 100%; /* Largeur de l'image à 100% de la carte */
+    border-radius: 5px; /* Coins arrondis pour l'image */
+  }
+  
+  .productCard_content {
+    margin-top: 10px; /* Espacement au-dessus du contenu de la carte */
+  }
+  
+  .productName {
+    font-size: 1.2rem; /* Taille de la police du nom du produit */
+    margin-bottom: 5px; /* Espacement en bas du nom du produit */
+  }
+  
+  .productRole {
+    font-style: italic; /* Style italic pour le rôle */
+    color: #666; /* Couleur du texte pour le rôle */
+    margin-bottom: 10px; /* Espacement en bas du rôle */
+  }
+  
+  .parcelle,
+  .date {
+    display: flex; /* Affichage flex pour aligner les icônes et le texte */
+    align-items: center; /* Alignement vertical */
+    color: #333; /* Couleur du texte */
+  }
+  
+  .productCard_tree,
+  .productCard_calendar {
+    margin-right: 5px; /* Espacement à droite des icônes */
+  }
+  
