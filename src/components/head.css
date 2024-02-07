@@ -1,7 +1,6 @@
 .nav {
   position: sticky;
   top: 0;
-  width: 100%;
   background: linear-gradient(180deg, rgba(0,64,6,1) 0%, rgba(0,64,6,0.9299369405965511) 52%, rgba(0,64,6,0.7254551478794643) 100%);
   padding: 20px;
   display: flex;
@@ -18,14 +17,14 @@
 }
 
 .nav_menu {
-  list-style-type: none; /* Enlever les puces de liste */
-  margin: 0; /* Enlever les marges par défaut */
-  padding: 0; /* Enlever le rembourrage par défaut */
-  display: flex; /* Utiliser flexbox pour aligner les éléments */
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
+  display: flex; 
 }
 
 .nav_item {
-  margin-left: 20px; /* Espacement entre les éléments */
+  margin-left: 20px;
 }
 
 .nav_link {

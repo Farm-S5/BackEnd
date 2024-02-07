@@ -39,6 +39,7 @@ export function LoginForm() {
             console.error('An error occurred during the fetch:', error);
         }
     }
+
   return (
     <div className="back">
     <div className="wrapper">

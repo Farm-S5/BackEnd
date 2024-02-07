@@ -2,6 +2,7 @@ import './App.css';
 import {LoginForm} from "./components/Login";
 import Login from "./pages/Login";
 import ListPerson from "./pages/AppList"
+import Details from "./pages/DetailTerrainP"
 import ListeMessage from "./pages/AppMessage"
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -13,6 +14,7 @@ function App() {
         <Route>
           <Route path="/" exact element ={<Login />} />
           <Route path="ListePersonne" exact element ={<ListPerson/>} />
+          <Route path="Details" exact element ={<Details/>} />
         </Route>
       </Routes>
     </BrowserRouter>
