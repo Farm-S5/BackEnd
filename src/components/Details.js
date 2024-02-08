@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Details.css";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export function DetailsForm() {
   const { idTerrain } = useParams();
   const [data, setData] = useState(null);
   const [nbParcelle, setNbParcelle] = useState(null);
   const [parcelleData, setParcelleData] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,7 +22,12 @@ export function DetailsForm() {
           const responseData = await response.json();
           setData(responseData);
           setNbParcelle(responseData.nbParcelle);
-          setParcelleData(new Array(responseData.nbParcelle).fill({ rendement: "", superficie: "" }));
+          setParcelleData(
+            new Array(responseData.nbParcelle).fill({
+              rendement: "",
+              superficie: "",
+            })
+          );
         } else {
           console.warn("Server responded with an error:", response.status);
           try {
@@ -39,26 +48,47 @@ export function DetailsForm() {
   const handleInputChange = (index, e) => {
     const { name, value } = e.target;
     const newParcelleData = [...parcelleData];
-    newParcelleData[index][name] = value;
+    newParcelleData[index] = {
+      ...newParcelleData[index],
+      [name]: value,
+    };
     setParcelleData(newParcelleData);
   };
-
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`https://backend-production-b756.up.railway.app/parcelle/insertParcelle`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(parcelleData),
-      });
-      if (response.ok) {
-        console.log("Parcelles ajoutées avec succès !");
-      } else {
-        console.error("Erreur lors de l'ajout des parcelles :", response.status);
+      for (const parcelle of parcelleData) {
+        const formattedParcelleData = {
+          idTerrain: parseInt(idTerrain),
+          rendement: parseFloat(parcelle.rendement),
+          superficie: parseFloat(parcelle.superficie),
+        };
+        console.log(formattedParcelleData);
+
+        const response = await axios.post(
+          `https://backend-production-b756.up.railway.app/parcelle/insertParcelle`,
+          formattedParcelleData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response);
+        if (response.status === 200) {
+          navigate("ListePersonne");
+          console.log("Parcelle ajoutée avec succès !");
+        } else {
+          console.error(
+            "Erreur lors de l'ajout de la parcelle :",
+            response.status
+          );
+        }
       }
     } catch (error) {
-      console.error("Une erreur s'est produite lors de l'envoi de la requête :", error);
+      console.error(
+        "Une erreur s'est produite lors de l'envoi de la requête :",
+        error
+      );
     }
   };
 
@@ -114,6 +144,7 @@ export function DetailsForm() {
             />
           </div>
         ))}
+
         <button className="btn-details" onClick={handleSubmit}>
           Ajouter
         </button>
