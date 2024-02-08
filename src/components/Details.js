@@ -7,6 +7,7 @@ import axios from "axios";
 export function DetailsForm() {
   const { idTerrain } = useParams();
   const [data, setData] = useState(null);
+  const [data1, setData1] = useState(null);
   const [nbParcelle, setNbParcelle] = useState(null);
   const [parcelleData, setParcelleData] = useState([]);
 
@@ -28,6 +29,34 @@ export function DetailsForm() {
               superficie: "",
             })
           );
+        } else {
+          console.warn("Server responded with an error:", response.status);
+          try {
+            const errorResponse = await response.json();
+            console.error("Server error details:", errorResponse);
+          } catch (error) {
+            console.error("Failed to parse server error details:", error);
+          }
+        }
+      } catch (error) {
+        console.error("An error occurred during the fetch:", error);
+      }
+    };
+
+    fetchData();
+  }, [idTerrain]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://backend-production-b756.up.railway.app/parcelle/findParcelleByIdTerrain/${idTerrain}`
+        );
+
+        if (response.ok) {
+          const responseData = await response.json();
+          setData1(responseData);
+          console.log(responseData);
         } else {
           console.warn("Server responded with an error:", response.status);
           try {
@@ -118,6 +147,34 @@ export function DetailsForm() {
             ) : (
               <tr className="content">
                 <td colSpan="5">Loading...</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <h1>Parcelle du terrain</h1>
+      <div className="wrapper-details">
+        <table className="table-details">
+          <thead className="head-details">
+            <tr>
+              <th>Parcelle</th>
+              <th>Rendement</th>
+              <th>Superficie</th>
+            </tr>
+          </thead>
+          <tbody className="body-details">
+            {data1 && data1.length > 0 ? (
+              data1.map((item, index) => (
+                <tr key={index} className="subtitle-details">
+                  <td>{item.idParcelle}</td>
+                  <td>{item.rendement}</td>
+                  <td>{item.superficie}</td>
+                </tr>
+              ))
+            ) : (
+              <tr className="content">
+                <td colSpan="3">Loading...</td>
               </tr>
             )}
           </tbody>
