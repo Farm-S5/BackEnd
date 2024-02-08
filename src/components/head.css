@@ -11,13 +11,13 @@
 }
 
 .brand {
-  color: white; /* Couleur du texte */
+  color: white; 
   font-size: 24px; /* Taille de la police */
   text-decoration: none; /* Enlever le soulignement du lien */
 }
 
 .nav_menu {
-  list-style-type: none; 
+  list-style-type: none;
   margin: 0; 
   padding: 0; 
   display: flex; 
