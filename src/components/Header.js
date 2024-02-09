@@ -2,12 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { IoStatsChartSharp } from "react-icons/io5";
 import { IoIosNotifications } from "react-icons/io";
 import { IoLogOutSharp } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 import "./head.css";
 
 export function HeaderElement() {
+
+  const navigate = useNavigate();
+
     const userId = localStorage.getItem("id");
     const [personne, setPersonne] = useState(null);
+
+    const handleDisconnect = () =>{
+      localStorage.clear();
+      navigate('/');
+  };
 
     useEffect(() => {
       const fetchPersonne = async () => {
@@ -36,7 +45,7 @@ export function HeaderElement() {
                     <h3 className="nameUser">{personne.nameUser}</h3>
                     <ul className="nav_menu">
                         <li className="nav_item"><a href="#" className="nav_link"><IoIosNotifications className={"iconN"} />Notification</a></li>
-                        <li className="nav_item"><IoLogOutSharp className={"iconL"} /></li>
+                        <li className="nav_item" onClick={handleDisconnect}><IoLogOutSharp className={"iconL"} /></li>
                     </ul>
                 </>
             )}

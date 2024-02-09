@@ -13,6 +13,11 @@ export function DetailsForm() {
 
   const navigate = useNavigate();
 
+  const handleDisconnect = () =>{
+    localStorage.clear();
+    navigate('/');
+};
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -104,7 +109,7 @@ export function DetailsForm() {
         );
         console.log(response);
         if (response.status === 200) {
-          navigate("ListePersonne");
+          navigate("/ListePersonne");
           console.log("Parcelle ajoutée avec succès !");
         } else {
           console.error(
